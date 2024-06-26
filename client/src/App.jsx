@@ -8,9 +8,9 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from 'apollo/client';
+} from '@apollo/client';
 // Import the setContext function to set the HTTP headers
-import { setContext } from 'apollo/client/link/context';
+import { setContext } from '@apollo/client/link/context';
 
 // Import the Navbar component
 import Navbar from './components/Navbar';
@@ -43,10 +43,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <>
+    <ApolloProvider client={client}>
       {/* Render the Navbar component */}
       <Navbar />
       {/* Render the Outlet component for nested routing */}
       <Outlet />
+      </ApolloProvider>
+
     </>
   );
 }
